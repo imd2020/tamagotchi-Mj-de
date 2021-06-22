@@ -1,8 +1,5 @@
-import Gloss from "./gloss.js";
-export default class Cake extends Gloss {
-  constructor(cakeX, cakeY, cakeS, glossX, glossY, glossR, glossG, glossB) {
-    super(glossX, glossY, glossR, glossG, glossB);
-
+export default class Cake {
+  constructor(cakeX, cakeY, cakeS) {
     this.cakeX = cakeX;
     this.cakeY = cakeY;
     this.cakeS = cakeS;
@@ -14,7 +11,7 @@ export default class Cake extends Gloss {
     translate(this.cakeX, this.cakeY);
     scale(this.cakeS);
 
-    //   plate
+    //   grey plate
 
     fill(153, 153, 102);
     arc(125, 100, 285, 100, 180, 0);
@@ -25,7 +22,7 @@ export default class Cake extends Gloss {
     fill(163, 163, 117);
     arc(125, 100, 285, 95, 0, 180);
 
-    //   main body of the cake
+    //   main body of the brown cake
     fill(153, 51, 0);
     rect(0, 0, 250, 100);
 

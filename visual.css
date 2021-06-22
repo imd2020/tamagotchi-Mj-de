@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+canvas {
+  margin: 0 auto;
+  display: block;
+}
+
+.big {
+  color: #ffffff;
+}

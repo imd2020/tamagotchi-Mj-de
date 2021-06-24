@@ -153,20 +153,49 @@ let chosenCandleAmount = 0;
 let orderColor = round(random(1, 3));
 let orderCandleAmount = round(random(1, 3));
 
+// literal object
+let welcomeObject = { x: 200, y: 150, s: 1.5 };
+
+// animation with gsap
+
+function animation1() {
+  gsap.to(welcomeObject, {
+    duration: 4,
+    x: 300,
+    ease: "bounce",
+
+    onComplete: () => {
+      console.log("arrival");
+      animation2();
+    },
+  });
+}
+
+function animation2() {
+  gsap.to(welcomeObject, {
+    duration: 4,
+    x: 100,
+    ease: "bounce",
+
+    onComplete: () => {
+      console.log("arrival");
+      animation1();
+    },
+  });
+}
+
+animation1();
+
 // functions
 
-function welcome(welcomeX, welcomeY, welcomeS) {
+function welcome(welcomeValues) {
   push();
 
-  translate(welcomeX, welcomeY);
+  translate(welcomeValues.x, welcomeValues.y);
 
   noStroke();
 
-  //   blue background
-  fill(102, 179, 255);
-  rect(-200, -150, 900, 500);
-
-  scale(welcomeS);
+  scale(welcomeValues.s);
   //   welcome sign
   fill(204, 102, 153);
   rect(0, 0, 350, 100);
@@ -176,11 +205,7 @@ function welcome(welcomeX, welcomeY, welcomeS) {
   fill(102, 179, 255);
   ellipse(170, 0, 350, 40);
 
-  //   // cooking hat
-
-  //   fill(255, 255, 255);
-  //   rect(70, -42, 55, 60, 10);
-
+  // welcome text
   fill(255, 255, 255);
   textStyle(ITALIC);
   textSize(20);
@@ -192,7 +217,13 @@ function welcome(welcomeX, welcomeY, welcomeS) {
 
 function startScreen() {
   push();
-  welcome(200, 150, 1.5);
+
+  //   blue background
+  noStroke();
+  fill(102, 179, 255);
+  rect(0, 0, 900, 500);
+
+  welcome(welcomeObject);
 
   startButton.showButton();
   pop();
